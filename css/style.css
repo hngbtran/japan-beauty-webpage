@@ -10,10 +10,11 @@ h1 {
   margin: 20px
 }
 
-button {
+#skip_button {
   font-family: 'Segoe UI', Arial;
   font-size: 100%;
   font-weight: 400;
+  display: inline-block;
   background-color: #f1fef6;
   border-radius: 5px;
   border: 0px solid #5db17d;
@@ -27,18 +28,18 @@ button {
   transition-duration: .5s;
 }
 
-button:focus {
+#skip_button:focus {
   top: 0px;
   transition-duration: .5s;
 }
 
-button:active {
+#button:active {
   background-color: #def2e6;
   border: 0px solid #5db17d;
   border-left: 5px solid #5db17d;
 }
 
-#skip {
+#skip_button {
   text-decoration: none;
 }
 
