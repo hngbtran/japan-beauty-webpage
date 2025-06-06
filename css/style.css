@@ -28,18 +28,18 @@ h1 {
   transition-duration: .5s;
 }
 
-#skip_button:focus {
+#skip_button:focus, #skip_button:active {
   top: 0px;
   transition-duration: .5s;
 }
 
-#button:active {
+#skip_button:active {
   background-color: #def2e6;
   border: 0px solid #5db17d;
   border-left: 5px solid #5db17d;
 }
 
-#skip_button {
+#skip {
   text-decoration: none;
 }
 
@@ -113,11 +113,13 @@ nav a:hover {
   width: 10%;
   margin-right: 0px;
   border: 0px solid #ffffff;
-}
+  transform: scale(1) rotate(0deg);
+  transition: transform 0.25s ease;
+} 
 
 #nav_img:hover {
-  transform: scale(1.2) rotate(-10deg);
-  transition: transform 0.25s ease;
+  transform: scale(1.4) rotate(-10deg);
+  transition: 0.25s ease;
 }
 
 /* #nav_img:active {
@@ -205,11 +207,12 @@ body {
   position: relative;
   display: flex;
   flex-direction: column;
-  align-items: center; /* This centers children horizontally */
+  align-items: center;
 }
 
 .img-hover-text {
   font-family: 'Segoe UI';
+  font-weight: 400;
   text-align: center;
   opacity: 0;
   visibility: hidden;
@@ -219,9 +222,9 @@ body {
   margin-top:0px;
   transform: translate(-50%, -15px) scale(1); 
 
-  background: rgba(255,255,255,0.97);
+  background: rgba(255,255,255,0.9);
   color: #d67878;
-  padding: 15px 20px;
+  padding: 10px 15px;
   border: 2px solid #ffa6a6;
   border-radius: 8px;
   width: 60%;
@@ -240,11 +243,11 @@ body {
 .img-hover-container:hover .img-hover-text {
   opacity: 1;
   visibility: visible;
-  transform: translate(-50%, -30px) scale(1.1);
+  transform: translate(-50%, -30%) scale(1.1);
   transition:
     opacity 0.25s ease,
     visibility 0s linear 0s,
-    transform 0.25s ease;
+    transform 0.5s ease 0.5s;
 }
 
 .img-hover-container:active .img-hover-text {
@@ -353,6 +356,13 @@ body {
   background: #45838be5;
 }
 
+.popular_places img:hover {
+  transform: scale(1.4);
+  transition:
+    transform 0.5s ease 0.4s;
+}
+
+
 .cuisine figcaption {
   color: #fff8fb;
   background: #e7778ae5;
@@ -362,3 +372,30 @@ body {
   color: #f1fef6;
   background: #3e7e57e7;
 }
+
+#japan_beauty .culture img:hover {
+  transform: scale(1.1);
+  border: 2px solid #5db17d;
+  transition:
+    padding 0.5s ease 0.2s,
+    border 0.5s ease 0.2s,
+    transform 0.5s ease 0.4s;
+}
+
+#japan_beauty .popular_places img:hover {
+  transform: scale(1.25);
+  border: 2px solid #45838b;
+  transition:
+    padding 0.5s ease 0.2s,
+    border 0.5s ease 0.2s,
+    transform 0.5s ease 0.4s;
+}
+
+#japan_beauty .cuisine img:hover {
+    transform: scale(1.1);
+    border: 2px solid #e7778a;
+    transition:
+      padding 0.5s ease 0.2s,
+      border 0.5s ease 0.2s,
+      transform 0.5s ease 0.4s;
+  }
