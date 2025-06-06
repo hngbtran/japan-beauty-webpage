@@ -1,0 +1,363 @@
+h1 {
+  font-family: 'Segoe UI', Arial;
+  font-size: 200%;
+  font-weight: 800;
+  background-color: #fff3f8;
+  color: #e0667a;
+  border: 2px dashed #e7778a;
+  border-radius: 5px;
+  padding: 10px;
+  margin: 20px
+}
+
+button {
+  font-family: 'Segoe UI', Arial;
+  font-size: 100%;
+  font-weight: 400;
+  background-color: #f1fef6;
+  border-radius: 5px;
+  border: 0px solid #5db17d;
+  border-left: 5px solid #5db17d;
+  color: #00291d;
+  padding: 5px;
+  margin-top: 10px;
+  position: relative;
+  top: -200px;
+  transition-property: background-color, top;
+  transition-duration: .5s;
+}
+
+button:focus {
+  top: 0px;
+  transition-duration: .5s;
+}
+
+button:active {
+  background-color: #def2e6;
+  border: 0px solid #5db17d;
+  border-left: 5px solid #5db17d;
+}
+
+#skip {
+  text-decoration: none;
+}
+
+#skip:hover {
+  font-weight: 700;
+}
+
+#index_main, #outdoor_walk_main p {
+  font-family: 'Segoe UI', Arial;
+  font-size: 100%;
+  font-weight: 400;
+  background-color: #f1fef6;
+  border-radius: 5px;
+  border: 2px solid #5db17d;
+  border-bottom: 4px solid #5db17d;
+  color: #00291d;
+  padding: 20px;
+  margin: 20px;
+}
+
+footer {
+  font-family: 'Segoe UI', Arial;
+  font-size: 90%;
+  text-align: center;
+  padding: 60px;
+}
+
+section {
+  list-style-type: "\2728";
+  list-style-position: inside;
+  margin: 20px;
+  padding: 20px;
+  border-radius: 5px;
+  background-color: #f1fef6;
+  width: 80%;
+  box-sizing: border-box;
+  float: right;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  height: 80px;
+  border: 2px solid #5db17d;
+}
+
+a {
+  font-family: 'Segoe UI', Arial;
+  font-weight: 500;
+  color: #3e7e57;
+  padding-left: 0px;
+}
+
+nav a{
+  font-size: 18px;
+  text-decoration: none;
+  text-align: center;
+  display: inline-block;
+  transition-property: all;
+  transition: 0.25s ease;
+}
+
+nav a:hover {
+  color: #e0667a;
+  font-weight: 700;
+  font-size: 20px;
+  padding: 5px 10px;
+  background-color: #fff3f8;
+  border-radius: 5px;
+}
+
+#nav_img {
+  width: 10%;
+  margin-right: 0px;
+  border: 0px solid #ffffff;
+}
+
+#nav_img:hover {
+  transform: scale(1.2) rotate(-10deg);
+  transition: transform 0.25s ease;
+}
+
+/* #nav_img:active {
+  transform: scale(4) rotate(2deg) translateX(100%) translateY(40%) skew(5deg);
+  transition: transform 0.25s ease;
+} */
+
+.current, .current > a {
+  padding: 5px 10px;
+  background-color: #fff3f89f;
+  border-radius: 5px;
+  color: #e0667a !important;
+}
+
+img {
+  margin: 20px;
+  border: 2px solid #5db17d;
+  border-bottom: 4px solid #5db17d;
+  border-radius: 5px;
+}
+
+body {
+  max-width: 850px;
+  margin: 0 auto;
+}
+
+#outdoor_walks_images {
+  display: grid;
+  gap: 40px;
+  grid-template-columns: 40% 40%;
+  justify-content: center;
+  align-items: center;
+}
+
+#japan_beauty img, #outdoor_walks_images img {
+  width: 80%;
+  padding: 10px;
+  display: block;
+  border-radius: 10px;
+  background-color: #f7fffa;
+
+  transition-property: padding, border;
+  transition: 0.25s ease;
+}
+
+
+
+#outdoor_walks_images img:hover {
+  border: 2px solid #ffa6a6;
+  background-color: #fffbff;
+  padding: 5px;
+  transform: scale(1.2);
+  transition:
+    border 0.2s ease 0s,
+    background-color 0.5s ease 0s,
+    padding 0.5s ease 0.25s,
+    transform 0.5s ease 0.4s;
+  z-index: 10;
+}
+
+#japan_beauty img:hover {
+  padding: 5px;
+  transform: scale(1.2);
+  transition:
+    border 0.2s ease 0s,
+    background-color 0.5s ease 0s,
+    padding 0.5s ease 0.25s,
+    transform 0.5s ease 0.4s;
+}
+
+#outdoor_walks_images img:nth-of-type(even):active {
+  transform: scale(1.8) translateX(-35%);
+  padding: 3px;
+  background-color: #fffbff;
+  transition: 0.25s ease;
+}
+
+#outdoor_walks_images img:nth-of-type(odd):active {
+  transform: scale(1.8) translateX(35%);
+  padding: 3px;
+  background-color: #fffbff;
+  transition: 0.25s ease;
+}
+.img-hover-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* This centers children horizontally */
+}
+
+.img-hover-text {
+  font-family: 'Segoe UI';
+  text-align: center;
+  opacity: 0;
+  visibility: hidden;
+  position: absolute;
+  left: 50%;
+  top: 100%;
+  margin-top:0px;
+  transform: translate(-50%, -15px) scale(1); 
+
+  background: rgba(255,255,255,0.97);
+  color: #d67878;
+  padding: 15px 20px;
+  border: 2px solid #ffa6a6;
+  border-radius: 8px;
+  width: 60%;
+  min-width: 180px;
+  max-width: 300px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  z-index: 10;
+  font-size: 0.8rem;
+  pointer-events: none;
+  transition:
+    opacity 0.25s ease,
+    visibility 0s linear 0.25s,
+    transform 0.5s ease;
+}
+
+.img-hover-container:hover .img-hover-text {
+  opacity: 1;
+  visibility: visible;
+  transform: translate(-50%, -30px) scale(1.1);
+  transition:
+    opacity 0.25s ease,
+    visibility 0s linear 0s,
+    transform 0.25s ease;
+}
+
+.img-hover-container:active .img-hover-text {
+  opacity: 0;
+  visibility: hidden;
+  transition:
+    opacity 0.25s ease,
+    visibility 0s linear 0.25s,
+    transform 0.25s ease,
+    scale 0.25 ease;
+}
+
+#outdoor_walks_images .img-hover-container:nth-of-type(even):active img {
+  transform: scale(1.8) translateX(-35%);
+  padding: 3px;
+  background-color: #fffbff;
+  transition: 0.25s ease;
+  z-index: 10;
+}
+
+#outdoor_walks_images .img-hover-container:nth-of-type(odd):active img {
+  transform: scale(1.8) translateX(35%);
+  padding: 3px;
+  background-color: #fffbff;
+  transition: 0.25s ease;
+  z-index: 10;
+}
+
+.img-hover-container:active .img-hover-text {
+  opacity: 0;
+  visibility: none;
+  transition:
+    opacity 0.25s ease;
+    
+}
+
+#japan_beauty h2 {
+  font-family: 'Segoe UI';
+  text-align: center;
+}
+
+.japan_beauty {
+  display: grid;
+  gap: 5px;
+  grid-template-columns: 30% 30% 30%;
+  justify-content: space-evenly;
+  align-items: center;
+  margin: 0px;
+  place-items: center;
+}
+.culture {
+  color: #3e7e57;
+  background-color:#f1fef6;
+  padding-top: 2px;
+}
+
+.cuisine {
+  color: #e0667a; 
+  background-color: #fffbff;
+  padding-top: 2px;
+  margin-top: 20px;
+}
+
+.cuisine img {
+  border: 2px solid #e7778a;
+  border-bottom: 4px solid #e7778a;
+  background-color: #fff3f8 !important;
+}
+
+.popular_places {
+  color: #45838b; 
+  background-color: #f3fffe;
+  padding-top: 1px;
+  margin-top: 20px;
+}
+
+.popular_places img {
+  border: 2px solid #45838b;
+  border-bottom: 4px solid #45838b;
+  background-color: #f3fffe;
+}
+
+.japan_beauty figure {
+  display: flex;
+  flex-direction: column;
+  align-items:center;
+  margin: 20px 0;
+  margin-top: 0px;
+  background: #ffffff00;
+  border-radius: 8px;
+  box-sizing: border-box;
+}
+
+.japan_beauty figcaption {
+  font-family: 'Segoe UI';
+  margin-top: 10px;
+  font-size: 1em;
+  text-align: center;
+  border-radius: 5px;
+  padding: 6px 8px;
+  width: 90%;
+}
+
+.popular_places figcaption{
+  color: #f3fffe;
+  background: #45838be5;
+}
+
+.cuisine figcaption {
+  color: #fff8fb;
+  background: #e7778ae5;
+}
+
+.culture figcaption {
+  color: #f1fef6;
+  background: #3e7e57e7;
+}
