@@ -100,11 +100,11 @@ nav a{
   transition: 0.25s ease;
 }
 
-nav a:hover {
+nav a:hover, nav a:focus {
   color: #e0667a;
   font-weight: 700;
   font-size: 20px;
-  padding: 5px 10px;
+  padding: 6px 10px;
   background-color: #fff3f8;
   border-radius: 5px;
 }
@@ -121,11 +121,6 @@ nav a:hover {
   transform: scale(1.4) rotate(-10deg);
   transition: 0.25s ease;
 }
-
-/* #nav_img:active {
-  transform: scale(4) rotate(2deg) translateX(100%) translateY(40%) skew(5deg);
-  transition: transform 0.25s ease;
-} */
 
 .current, .current > a {
   padding: 5px 10px;
@@ -164,8 +159,6 @@ body {
   transition-property: padding, border;
   transition: 0.25s ease;
 }
-
-
 
 #outdoor_walks_images img:hover {
   border: 2px solid #ffa6a6;
@@ -392,7 +385,7 @@ body {
 }
 
 #japan_beauty .cuisine img:hover {
-    transform: scale(1.1);
+    transform: scale(1.15);
     border: 2px solid #e7778a;
     transition:
       padding 0.5s ease 0.2s,
