@@ -149,7 +149,7 @@ body {
   align-items: center;
 }
 
-#japan_beauty img, #outdoor_walks_images img {
+#japan_beauty img {
   width: 80%;
   padding: 10px;
   display: block;
@@ -158,19 +158,6 @@ body {
 
   transition-property: padding, border;
   transition: 0.25s ease;
-}
-
-#outdoor_walks_images img:hover {
-  border: 2px solid #ffa6a6;
-  background-color: #fffbff;
-  padding: 5px;
-  transform: scale(1.2);
-  transition:
-    border 0.2s ease 0s,
-    background-color 0.5s ease 0s,
-    padding 0.5s ease 0.25s,
-    transform 0.5s ease 0.4s;
-  z-index: 10;
 }
 
 #japan_beauty img:hover {
@@ -183,19 +170,6 @@ body {
     transform 0.5s ease 0.4s;
 }
 
-#outdoor_walks_images img:nth-of-type(even):active {
-  transform: scale(1.8) translateX(-35%);
-  padding: 3px;
-  background-color: #fffbff;
-  transition: 0.25s ease;
-}
-
-#outdoor_walks_images img:nth-of-type(odd):active {
-  transform: scale(1.8) translateX(35%);
-  padding: 3px;
-  background-color: #fffbff;
-  transition: 0.25s ease;
-}
 .img-hover-container {
   position: relative;
   display: flex;
@@ -203,7 +177,7 @@ body {
   align-items: center;
 }
 
-.img-hover-text {
+.img-hover-container .img-hover-text {
   font-family: 'Segoe UI';
   font-weight: 400;
   text-align: center;
@@ -214,8 +188,8 @@ body {
   top: 100%;
   margin-top:0px;
   transform: translate(-50%, -15px) scale(1); 
-
-  background: rgba(255,255,255,0.9);
+  
+  background: rgba(255,255,255,0.95);
   color: #d67878;
   padding: 10px 15px;
   border: 2px solid #ffa6a6;
@@ -228,9 +202,10 @@ body {
   font-size: 0.8rem;
   pointer-events: none;
   transition:
-    opacity 0.25s ease,
-    visibility 0s linear 0.25s,
-    transform 0.5s ease;
+  opacity 0.25s ease,
+  visibility 0s linear 0s,
+  transform 0.5s ease
+  all 0.25s ease;
 }
 
 .img-hover-container:hover .img-hover-text {
@@ -238,43 +213,114 @@ body {
   visibility: visible;
   transform: translate(-50%, -30%) scale(1.1);
   transition:
-    opacity 0.25s ease,
-    visibility 0s linear 0s,
-    transform 0.5s ease 0.5s;
+  all 0.25s ease;
 }
 
-.img-hover-container:active .img-hover-text {
-  opacity: 0;
-  visibility: hidden;
+.img-hover-container img {
+  width: 80%;
+  padding: 10px;
+  display: block;
+  border-radius: 10px;
+  background-color: #f7fffa;
+
+  transition-property: padding, border;
+  transition: 0.25s ease;
+}
+
+.img-hover-container:hover img {
+  border: 2px solid #ffa6a6;
+  background-color: #fffbff !important;
+  padding: 5px !important;
+  transform: scale(1.2);
   transition:
-    opacity 0.25s ease,
-    visibility 0s linear 0.25s,
-    transform 0.25s ease,
-    scale 0.25 ease;
+    border 0.2s ease 0s,
+    background-color 0.5s ease 0s,
+    padding 0.5s ease 0.25s,
+    transform 0.5s ease 0.1s;
+  z-index: 10;
 }
 
-#outdoor_walks_images .img-hover-container:nth-of-type(even):active img {
+.img-hover-container.zoomed img {
+  transform: scale(1.8);
+  z-index: 25;
+  padding: 3px;
+  background-color: #fffbff;
+  border: 1px solid #e7778a;
+  transition: 0.25s ease;
+}
+
+.img-hover-container.zoomed:nth-of-type(even) img {
   transform: scale(1.8) translateX(-35%);
-  padding: 3px;
-  background-color: #fffbff;
-  transition: 0.25s ease;
-  z-index: 10;
 }
 
-#outdoor_walks_images .img-hover-container:nth-of-type(odd):active img {
+.img-hover-container.zoomed:nth-of-type(odd) img {
   transform: scale(1.8) translateX(35%);
-  padding: 3px;
-  background-color: #fffbff;
-  transition: 0.25s ease;
-  z-index: 10;
 }
 
-.img-hover-container:active .img-hover-text {
-  opacity: 0;
-  visibility: none;
-  transition:
-    opacity 0.25s ease;
-    
+.img-hover-container.zoomed .img-hover-text {
+  /* Make text visible */
+  opacity: 1;
+  visibility: visible;
+  
+  /* Position below the image */
+  position: absolute;
+  top: auto;  
+  bottom: -60px;  
+  left: 50%;
+  transform: scale(1.25) translateX(-50%); 
+  
+  /* Style enhancements */
+  z-index: 30;
+  background-color: rgba(255,255,255,0.95);
+  border: 2px solid #ffa6a6;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.15);
+  
+  /* Animation */
+  transition: all 0.25s ease;
+}
+
+/* Base state for overlay (always present but invisible) */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: 10;
+  opacity: 0; /* Start transparent */
+  visibility: hidden; /* Start hidden */
+  transition: 
+    opacity 0.8s ease, /* Slow fade for opacity */
+    visibility 0s linear 0.8s; /* Delay visibility change */
+  pointer-events: none; /* Allow clicks to pass through when invisible */
+}
+
+/* Active state when an image is zoomed */
+body.has-zoomed-image::before {
+  opacity: 1;
+  visibility: visible;
+  transition: 
+    opacity 0.8s ease, /* Slow fade in */
+    visibility 0s; /* No delay for visibility when showing */
+}
+
+/* Ensure zoomed images stay above the overlay */
+.img-hover-container.zoomed {
+  position: relative;
+  z-index: 20;
+}
+
+body.has-zoomed-image .img-hover-container:not(.zoomed):hover img {
+  transform: none !important;
+  border: 2px solid #5db17d !important;
+  background-color: #f7fffa !important;
+  padding: 10px !important;
+  z-index: 30;
+}
+body.has-zoomed-image .img-hover-container:not(.zoomed):hover .img-hover-text {
+  z-index: 30;
 }
 
 #japan_beauty h2 {
