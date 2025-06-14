@@ -227,6 +227,10 @@ body {
   transition: 0.25s ease;
 }
 
+.img-hover-container.zoomed:focus {
+  outline: 3px solid #ffffff00;
+}
+
 .img-hover-container:hover img {
   border: 2px solid #ffa6a6;
   background-color: #fffbff !important;
